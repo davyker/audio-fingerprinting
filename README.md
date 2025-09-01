@@ -1,6 +1,6 @@
 # Audio Fingerprinting System
 
-A Python implementation of audio fingerprinting for music identification, using spectral peak analysis and hash-based matching.
+A Python implementation of audio fingerprinting for music identification, using spectral peaks and hash-based matching.
 This is based on the method described in "An Industrial-Strength Audio Search Algorithm" (Avery Li-Chun Wang 2003).
 
 ## Setup
