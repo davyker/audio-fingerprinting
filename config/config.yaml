@@ -1,0 +1,52 @@
+# Audio processing parameters
+sample_rate: 22050
+n_fft: 1024
+win_length: 1024
+hop_length: 128
+window: "hann" # "hann", "hamming", "blackman", "blackmanharris", "bartlett", "kaiser", "tukey"
+
+# Frequency masking parameters
+apply_mask: False
+boost_ratio: 1
+suppress_ratio: 0
+boost_band_min: 1000
+boost_band_max: 8000
+
+# Peak detection parameters
+db_min_distance: 10 # Lower than 10 seems unecessary and very slow
+query_min_distance: 10 # ditto
+db_max_peaks: 3000
+query_max_peaks: 1000
+threshold_rel: null
+peaks_f_bins: 1 # Between 0-1 means the number of frequency bins is multiplied by this value. If an integer, it is the number of frequency bins to use. 1 means no binning.
+
+# Target zone parameters
+target_zone_width: 120
+target_zone_height: 85
+forward_offset: 2
+upward_offset: 0
+max_target_points: 100000
+
+# Hash selection modes
+db_hash_selection_mode: "closest"
+query_hash_selection_mode: "closest"
+
+# Hashing parameters
+hash_mode: "pairs" # 'pairs' or 'points'
+pairs_implies_points: false # If true, pairs mode will include all anchor points as single-point hashes
+
+# Ranking method
+rank_by: "score"
+
+# Path parameters
+database_dir: "database_recordings"
+query_dir: "query_recordings"
+fingerprints_dir: "hash_maps"
+
+# Evaluation parameters
+num_queries: 'all'
+num_distractors: 'all'
+seed: 52
+fingerprints_path: null
+output_path: "output.txt"
+operation: "evaluate"

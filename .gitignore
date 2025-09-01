@@ -1,0 +1,6 @@
+fingerprints/
+results/
+*.pkl
+
+__pycache__/
+*.pyc
