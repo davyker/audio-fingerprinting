@@ -3,6 +3,25 @@
 A Python implementation of audio fingerprinting for music identification, using spectral peaks and hash-based matching.
 This is based on the method described in "An Industrial-Strength Audio Search Algorithm" (Avery Li-Chun Wang 2003).
 
+## Method
+
+The images below explain the fundamental concept.
+Each database track is converted to a spectrogram and peak-picking is performed with a fixed minimum distance between points, as below.
+
+![Peaks Example](https://github.com/user-attachments/assets/82796919-a89e-477c-a7a3-93f1e9300fc9)
+
+Each peak is used as an anchor point with which to create hashes (pairs of peaks). Each other peak within a target zone to the right of the anchor is paired with the anchor to create a hash.
+
+![Hashes Example](https://github.com/user-attachments/assets/9571c755-3db2-47fd-bf40-a05626f46c70)
+
+The idea is that if a query contains a segment of one of the recordings in our database, it will contains pairs of spectral peaks that align with that track far more often than two aritrary recordings, and with a consistent time offset.
+
+## Results
+
+The overall top-1 accuracy is 85.4% (top-3 accuracy 89.2%) when using minimum peak distance of 10, which gives a good tradeoff between speed and accuracy.
+
+![Results](https://github.com/user-attachments/assets/acebc719-a87b-4db6-9f3e-787842446c98)
+
 ## Setup
 
 Install dependencies (Python 3.10+ recommended):
